@@ -1,0 +1,40 @@
+- hosts: all
+  become: true
+  vars_files:
+  - "var_files/{{ ansible_facts['distribution'] }}.yml"
+
+  tasks:
+  - name: Install Webserver Package
+    package: 
+      name: "{{ web.package }}"
+      state: present
+
+  - name: Start Webserver Service
+    service:
+      name: "{{ web.service }}"
+      state: started
+      enabled: true
+
+  - name: Copy WebPage
+    copy:
+      content: |
+        <!DOCTYPE html>
+        <html>
+            <head><title>ARTH Task</title></head>
+            <body bgcolor="white">
+              <center>
+                  <h1>I'm {{ ansible_facts['distribution'] }}</h1>
+                  <h2>Ansible Playbook which will dynamically loads the variable file named same as OS Name</h2>
+                  <h2>Just by using the variable names we can configure the target node</h2>
+                  <h3>Note: ‘when’ keyword is not used here to load the variable files</h3><br>
+                  <img src="https://askops.in/wp-content/uploads/2020/05/ansible1.png" height=400 />
+                  <h3>Thanks Vimal Daga Sir<br>LinuxWorld Informatics Pvt. Ltd.</h3>
+              </center>
+            </body>
+        </html>
+      dest: "{{ web.document_root }}web.html"
+
+  - name: Print URLs
+    debug:
+      msg: "{{ ansible_facts['distribution'] }} Server URL: {{ inventory_hostname }}/web.html"
+      

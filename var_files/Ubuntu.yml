@@ -1,0 +1,4 @@
+web:
+  package: apache2
+  service: apache2
+  document_root: /var/www/html/
