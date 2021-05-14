@@ -6,7 +6,7 @@ Note: ‘when’ keyword is not used here to load the variable files
 
 ## Links
 
-[Click here for Video and Post](https://www.linkedin.com/in/amanjhagrolia143)
+[Click here for Video and Post](https://www.linkedin.com/posts/amanjhagrolia143_rightmentor-righteducation-worldrecordholder-activity-6798929780424138752-ciR5)
 
 ***Feel free to Contact if any issue!!***
 
